@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "smtp-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "form-data": "^3.0.0",
+    "got": "^11.1.4",
+    "smtp-server": "^3.6.0"
+  }
+}
