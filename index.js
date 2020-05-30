@@ -6,7 +6,7 @@ const FormData = require("form-data");
 
 const SERVER_PORT = 2525;
 const SERVER_HOST = "localhost";
-const POST_URL = "http://localhost/process-email.php";
+const POST_URL = "http://localhost/example_store.php";
 
 const server = new SMTPServer({
 	logger: true,
