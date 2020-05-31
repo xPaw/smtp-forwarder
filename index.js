@@ -15,6 +15,9 @@ const server = new SMTPServer({
 	// not required but nice-to-have
 	// banner: 'SMTP Server',
 
+	// Enable if using nginx with xclient
+	useXClient: true,
+
 	// disable STARTTLS to allow authentication in clear text mode
 	disabledCommands: ["AUTH", "STARTTLS"],
 
