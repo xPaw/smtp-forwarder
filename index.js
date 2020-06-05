@@ -45,6 +45,10 @@ const server = new SMTPServer({
 		callback();
 	},
 
+	onAuth(auth, session, callback) {
+		return callback(new Error('Not accepted'));
+	},
+
 	onData(stream, session, callback) {
 		let result = "";
 		stream.on("data", (chunk) => {
