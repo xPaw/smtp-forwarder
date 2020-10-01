@@ -7,6 +7,7 @@ const FormData = require("form-data");
 const SERVER_PORT = 2525;
 const SERVER_HOST = "localhost";
 const POST_URL = "http://localhost/example_store.php";
+const ADDR_TO_ACCEPT = "@example.com"; // Logic can be changed in `onRcptTo` callback
 
 const server = new SMTPServer({
 	logger: true,
@@ -38,7 +39,7 @@ const server = new SMTPServer({
 		}
 
 		// Only accept emails that are incoming to @example.com
-		if (!address.address.toLowerCase().endsWith("example.com")) {
+		if (!address.address.toLowerCase().endsWith(ADDR_TO_ACCEPT)) {
 			return callback(new Error("Not accepted"));
 		}
 
