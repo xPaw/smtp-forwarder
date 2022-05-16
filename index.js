@@ -1,8 +1,8 @@
 "use strict";
 
-const SMTPServer = require("smtp-server").SMTPServer;
-const got = require("got");
-const FormData = require("form-data");
+import { SMTPServer } from "smtp-server";
+import got from "got";
+import FormData from "form-data";
 
 const SERVER_PORT = 2525;
 const SERVER_HOST = "localhost";
