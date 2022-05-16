@@ -7,6 +7,7 @@ import FormData from "form-data";
 const SERVER_PORT = 2525;
 const SERVER_HOST = "localhost";
 const POST_URL = "http://localhost/example_store.php";
+const SECRET_TOKEN = "secret-token:some-secret-string";
 const ADDR_TO_ACCEPT = "@example.com"; // Logic can be changed in `onRcptTo` callback
 
 const server = new SMTPServer({
@@ -68,10 +69,13 @@ const server = new SMTPServer({
 
 			try {
 				const form = new FormData();
-				// form.append('secret', 'some secret password');
+				form.append("token", SECRET_TOKEN);
 				form.append("message", result);
 
 				const {body} = await got.post(POST_URL, {
+					headers: {
+						"user-agent": "smtp-forwarder"
+					},
 					body: form,
 				});
 				console.log(body);
