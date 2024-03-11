@@ -48,7 +48,7 @@ const server = new SMTPServer({
 	},
 
 	onAuth(auth, session, callback) {
-		return callback(new Error('Not accepted'));
+		return callback(new Error("Not accepted"));
 	},
 
 	onData(stream, session, callback) {
@@ -72,9 +72,9 @@ const server = new SMTPServer({
 				form.append("token", SECRET_TOKEN);
 				form.append("message", result);
 
-				const {body} = await got.post(POST_URL, {
+				const { body } = await got.post(POST_URL, {
 					headers: {
-						"user-agent": "smtp-forwarder"
+						"user-agent": "smtp-forwarder",
 					},
 					body: form,
 				});
