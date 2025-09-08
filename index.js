@@ -1,8 +1,6 @@
 "use strict";
 
 import { SMTPServer } from "smtp-server";
-import got from "got";
-import FormData from "form-data";
 
 const SERVER_PORT = 2525;
 const SERVER_HOST = "localhost";
@@ -72,12 +70,15 @@ const server = new SMTPServer({
 				form.append("token", SECRET_TOKEN);
 				form.append("message", result);
 
-				const { body } = await got.post(POST_URL, {
+				const response = await fetch(POST_URL, {
+					method: "POST",
 					headers: {
 						"user-agent": "smtp-forwarder",
 					},
 					body: form,
 				});
+
+				const body = await response.text();
 				console.log(body);
 			} catch (e) {
 				console.error(e);
